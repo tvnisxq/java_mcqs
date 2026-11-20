@@ -21,6 +21,89 @@
 .result{display:none;margin-top:18px}.result.show{display:block}.result h2{margin:0 0 5px}.scorebig{font-size:42px;font-weight:800;color:var(--accent)}.review{display:grid;gap:9px;margin-top:15px}.reviewitem{border:1px solid var(--line);border-radius:10px;padding:12px;background:#101a2c}.reviewitem small{color:var(--muted)}.source{color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:22px;padding-top:14px}.hidden{display:none!important}
 @media(max-width:800px){.layout{grid-template-columns:1fr}.side{position:static;order:-1}.gridnums{grid-template-columns:repeat(10,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.hero{display:block}.pill{display:inline-block;margin-top:10px}}
 @media(max-width:460px){.wrap{padding:18px 12px 40px}.card{padding:16px}.question{font-size:17px}.gridnums{grid-template-columns:repeat(8,1fr)}.nav .btn{padding:9px 11px}}
+
+/* Responsive layout refinements: phones, tablets, laptops and touch screens */
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-behavior:smooth }
+body{ min-width:320px; overflow-x:hidden }
+button{ font:inherit; -webkit-tap-highlight-color:transparent }
+button:focus-visible{ outline:3px solid var(--accent); outline-offset:2px }
+.wrap{ width:min(100%,1160px); padding-left:clamp(12px,2.4vw,28px); padding-right:clamp(12px,2.4vw,28px) }
+.question,.opt,.lesson,.explanation,.feedback p,.reviewitem{ overflow-wrap:anywhere; word-break:normal }
+.question{ white-space:pre-wrap }
+.question code,.opt code{ white-space:pre-wrap; overflow-wrap:anywhere }
+.option{ min-width:0; min-height:52px; touch-action:manipulation }
+.option .opt{ min-width:0 }
+.card{ min-width:0 }
+.gridnums{ grid-template-columns:repeat(5,minmax(0,1fr)) }
+.num{ min-width:0; min-height:36px; touch-action:manipulation }
+.btn,.filter{ min-height:42px; touch-action:manipulation }
+
+@media (min-width:1100px){
+ .layout{ grid-template-columns:minmax(0,1fr) 270px; gap:20px }
+ .side{ max-height:calc(100vh - 28px); overflow-y:auto }
+ .gridnums{ grid-template-columns:repeat(5,minmax(0,1fr)) }
+}
+@media (min-width:701px) and (max-width:1099px){
+ .wrap{ max-width:900px }
+ .layout{ grid-template-columns:minmax(0,1fr) 220px; gap:12px }
+ .card{ padding:18px }
+ .side{ position:sticky; top:10px }
+ .gridnums{ grid-template-columns:repeat(5,minmax(0,1fr)) }
+ .question{ font-size:clamp(17px,2.2vw,19px) }
+}
+@media (max-width:700px){
+ .wrap{ padding:16px 12px 32px }
+ .hero{ display:block; margin-bottom:14px }
+ .hero h1{ font-size:clamp(25px,7vw,34px); line-height:1.15 }
+ .sub{ font-size:14px }
+ .pill{ display:inline-block; white-space:normal; margin-top:8px }
+ .stats{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:14px 0 }
+ .stat{ padding:10px 12px }
+ .stat strong{ font-size:clamp(19px,5vw,23px) }
+ .toolbar{ gap:7px; margin:12px 0; }
+ .filter{ padding:8px 11px; font-size:13px }
+ .toolbar .spacer{ display:none }
+ .toolbar .btn{ margin-left:auto }
+ .layout{ display:flex; flex-direction:column; gap:12px }
+ .layout>main,.layout>.side{ width:100%; min-width:0 }
+ .side{ order:0; position:static; max-height:none; overflow:visible }
+ .layout>main{ order:1 }
+ .side p{ margin-bottom:9px }
+ .gridnums{ grid-template-columns:repeat(10,minmax(0,1fr)); gap:5px; max-height:164px; overflow-y:auto; padding:2px; overscroll-behavior:contain }
+ .num{ min-height:34px; font-size:11px }
+ .card{ padding:16px; border-radius:14px }
+ .qtop{ align-items:flex-start }
+ .question{ font-size:clamp(16px,4.5vw,18px); line-height:1.48 }
+ .lesson{ font-size:13px; padding:11px 12px }
+ .options{ gap:8px }
+ .option{ gap:9px; padding:11px; border-radius:11px }
+ .letter{ flex-basis:25px; height:25px }
+ .explanation{ font-size:12.5px; padding:9px 10px }
+ .nav{ gap:8px; margin-top:16px }
+ .nav .btn{ flex:1; padding:10px 8px }
+ .source{ font-size:11px }
+}
+@media (max-width:390px){
+ .wrap{ padding-left:10px; padding-right:10px }
+ .card{ padding:13px }
+ .toolbar{ gap:6px }
+ .filter{ padding:7px 9px; font-size:12px }
+ .gridnums{ grid-template-columns:repeat(8,minmax(0,1fr)); max-height:150px }
+ .num{ min-height:33px }
+ .qtop{ gap:7px }
+ .tag{ padding:4px 7px }
+ .option{ padding:10px }
+ .nav .btn{ font-size:13px }
+}
+@media (max-width:700px) and (orientation:landscape){
+ .gridnums{ max-height:112px }
+ .hero h1{ font-size:25px }
+}
+@media (prefers-reduced-motion:reduce){
+ html{ scroll-behavior:auto }
+ *,*::before,*::after{ transition:none!important; animation:none!important }
+}
+
 </style>
 </head>
 <body>
